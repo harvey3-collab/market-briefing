@@ -1,0 +1,12 @@
+[2026-04-08T13:00:52.443705+00:00] CoinDesk RSS (https://www.coindesk.com/arc/outboundfeeds/rss/): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
+[2026-04-08T13:00:54.505228+00:00] Cointelegraph Bitcoin RSS (https://cointelegraph.com/rss/tag/bitcoin): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
+[2026-04-08T13:00:56.573631+00:00] Yahoo Finance S&P 500 RSS (https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5EGSPC&region=US&lang=en-US): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
+[2026-04-08T13:00:58.627912+00:00] Yahoo Finance Nasdaq RSS (https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5EIXIC&region=US&lang=en-US): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
+[2026-04-08T13:12:39.263560+00:00] CoinDesk RSS (https://www.coindesk.com/arc/outboundfeeds/rss/): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
+[2026-04-08T13:12:41.338210+00:00] Cointelegraph Bitcoin RSS (https://cointelegraph.com/rss/tag/bitcoin): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
+[2026-04-08T13:12:43.405270+00:00] Yahoo Finance S&P 500 RSS (https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5EGSPC&region=US&lang=en-US): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
+[2026-04-08T13:12:45.466133+00:00] Yahoo Finance Nasdaq RSS (https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5EIXIC&region=US&lang=en-US): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
+[2026-04-08T13:20:37.919576+00:00] CoinDesk RSS (https://www.coindesk.com/arc/outboundfeeds/rss/): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
+[2026-04-08T13:20:39.975678+00:00] Cointelegraph Bitcoin RSS (https://cointelegraph.com/rss/tag/bitcoin): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
+[2026-04-08T13:20:42.045152+00:00] Yahoo Finance S&P 500 RSS (https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5EGSPC&region=US&lang=en-US): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
+[2026-04-08T13:20:44.113240+00:00] Yahoo Finance Nasdaq RSS (https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5EIXIC&region=US&lang=en-US): fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>
