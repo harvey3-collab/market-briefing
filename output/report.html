@@ -3,162 +3,330 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>市場晨報</title>
+  <title>每日市場晨報</title>
   <style>
+    :root {
+      --bg: #f3f6fb;
+      --bg-soft: #f8fbff;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #dce5f1;
+      --accent: #1d4ed8;
+      --accent-soft: #dbeafe;
+      --radius-lg: 14px;
+      --radius-md: 11px;
+      --radius-pill: 999px;
+      --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.045);
+      --shadow-md: 0 8px 22px rgba(15, 23, 42, 0.07);
+    }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      margin: 24px;
-      line-height: 1.5;
-      color: #1f2937;
-      background: #f8fafc;
+      margin: 0;
+      line-height: 1.6;
+      color: var(--text);
+      background: linear-gradient(180deg, #edf3fb 0%, var(--bg) 240px);
+      font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
     }
     .container {
-      max-width: 860px;
+      max-width: 920px;
       margin: 0 auto;
+      padding: 24px 18px 34px;
     }
-    h1 {
-      margin-bottom: 8px;
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
     }
-    .meta {
-      color: #4b5563;
-      margin-bottom: 20px;
+    .panel-title {
+      margin: 0 0 8px;
+      font-size: 19px;
+      line-height: 1.3;
+      font-weight: 700;
+      letter-spacing: 0.1px;
+    }
+    .hero {
+      position: relative;
+      padding: 24px 24px 20px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent) 0%, #60a5fa 72%, #bfdbfe 100%);
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 31px;
+      line-height: 1.2;
+      letter-spacing: 0.1px;
+    }
+    .hero-subtitle {
+      margin: 9px 0 0;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .hero-meta {
+      margin-top: 13px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 13px;
+      color: #334155;
+    }
+    .meta-pill {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 5px 10px;
+      background: #f8fafc;
+    }
+    .jump-nav {
+      position: sticky;
+      top: 10px;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px 10px;
+      margin: 0 0 12px;
+      background: rgba(250, 252, 255, 0.92);
+      backdrop-filter: blur(4px);
+    }
+    .jump-link {
+      display: inline-block;
+      font-size: 12px;
+      text-decoration: none;
+      color: #1e3a8a;
+      background: #eff6ff;
+      border: 1px solid var(--accent-soft);
+      border-radius: var(--radius-pill);
+      padding: 3px 9px;
+      font-weight: 600;
+    }
+    .jump-link:hover {
+      background: #dbeafe;
+    }
+    .summary {
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+    .takeaways {
+      background: linear-gradient(180deg, var(--bg-soft) 0%, #ffffff 100%);
+      border-color: #c9dcfb;
+      box-shadow: var(--shadow-md);
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+    .takeaways h2 {
+      margin: 0 0 9px;
+    }
+    .takeaway-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .takeaway-item {
+      border: 1px solid #d7e6ff;
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 7px 9px;
+      color: #1e293b;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .takeaway-label {
+      color: var(--accent);
+      font-weight: 700;
+      margin-right: 6px;
+    }
+    .summary h2 {
+      margin: 0 0 8px;
+    }
+    .summary-content {
+      margin: 0;
+      color: #334155;
+      white-space: pre-wrap;
+      min-height: 22px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .summary-content.is-empty {
+      color: #7b8798;
+      font-style: italic;
+      border: 1px dashed #d8e1ee;
+      border-radius: var(--radius-md);
+      padding: 8px 10px;
+      background: #f8fafd;
     }
     .cards {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 9px;
     }
     .section {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
+      padding: 8px 0 2px;
+      border-top: 1px dashed #d8e2f0;
+    }
+    .section-head {
+      margin: 0 0 8px;
+      padding: 3px 3px 5px;
+      border-left: 3px solid var(--accent-soft);
+      padding-left: 10px;
     }
     .section h2 {
-      margin: 0 0 10px 0;
-      font-size: 20px;
-      color: #0f172a;
+      margin: 0 0 8px;
+      font-size: 21px;
+      line-height: 1.25;
+      padding-bottom: 4px;
+    }
+    .section-intro {
+      margin: 0;
+      color: #475569;
+      font-size: 13px;
+      line-height: 1.6;
     }
     .card {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
       padding: 12px 14px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+    }
+    .cards .card:nth-child(-n+2) {
+      border-color: #cadbfd;
+      box-shadow: 0 3px 10px rgba(37, 99, 235, 0.08);
+    }
+    .cards .card:nth-child(n+3) {
+      background: #fbfdff;
     }
     .card h3 {
-      font-size: 18px;
-      margin: 0 0 8px 0;
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 700;
     }
     .card h3 a {
-      color: #0f172a;
+      color: var(--text);
       text-decoration: none;
     }
     .card h3 a:hover {
       text-decoration: underline;
     }
-    .row {
-      font-size: 14px;
-      color: #374151;
-      margin: 2px 0;
+    .highlight-line {
+      margin: 7px 0 8px;
+      padding: 5px 8px;
+      border-left: 3px solid #93c5fd;
+      background: #f8fbff;
+      color: #0f172a;
+      font-size: 13px;
+      line-height: 1.5;
+      border-radius: 0 8px 8px 0;
     }
-    .label {
-      font-weight: 600;
+    .highlight-label {
+      color: var(--accent);
+      font-weight: 700;
       margin-right: 6px;
     }
+    .description {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.55;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0 0 7px;
+    }
+    .tag {
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: var(--radius-pill);
+      padding: 1px 7px;
+    }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .meta-item {
+      white-space: nowrap;
+    }
+    .meta-item strong {
+      color: #475569;
+      font-weight: 600;
+      margin-right: 3px;
+    }
     .empty {
-      padding: 16px;
-      background: #ffffff;
-      border: 1px dashed #cbd5e1;
-      border-radius: 10px;
+      padding: 13px 14px;
+      background: #f8fafd;
+      border: 1px dashed #cfd8e6;
+      border-radius: var(--radius-md);
+      color: #475569;
+      font-size: 13px;
+    }
+    .page-footer {
+      margin-top: 18px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
   <main class="container">
-    <h1>市場晨報</h1>
-    <div class="meta">
-      <div>更新時間: 2026-04-08T13:38:20.428553+00:00</div>
-      <div>條目數: 10</div>
-    </div>
-    <section>
-      <section class="section">
-  <h2>美股</h2>
-  <div class="cards">
-    <article class="card">
-  <h3><a href="https://finance.yahoo.com/news/live/stock-market-today-dow-soars-over-1000-points-sp-500-and-nasdaq-surge-on-news-of-2-week-us-iran-ceasefire-133232224.html?.tsrc=rss" target="_blank" rel="noopener noreferrer">Stock market today: Dow soars over 1,000 points, S&amp;P 500 and Nasdaq surge on news of 2-week US-Iran ceasefire</a></h3>
-  <div class="row"><span class="label">來源:</span>Yahoo Finance Nasdaq RSS</div>
-  <div class="row"><span class="label">發布時間:</span>2026-04-08 13:32 UTC</div>
-  <div class="row"><span class="label">摘要:</span>Oil prices cratered as the suspension in hostilities raised hopes that the key Strait of Hormuz will soon reopen to shipping.</div>
-  
-</article>
-<article class="card">
-  <h3><a href="https://finance.yahoo.com/news/morning-brief-chicago-feds-goolsbee-nervous-about-impact-of-oil-shock-on-economy-100030121.html?.tsrc=rss" target="_blank" rel="noopener noreferrer">Morning Brief: Chicago Fed&#x27;s Goolsbee &#x27;nervous&#x27; about impact of oil shock on economy</a></h3>
-  <div class="row"><span class="label">來源:</span>Yahoo Finance Nasdaq RSS</div>
-  <div class="row"><span class="label">發布時間:</span>2026-04-08 10:00 UTC</div>
-  <div class="row"><span class="label">摘要:</span>The stock market, with President Trump&#x27;s threat to Iran that a &quot;whole civilization will die tonight&quot; at top of mind, still managed to eke out gains as hope remained on Tuesday of a diplomatic resolution.</div>
-  
-</article>
-<article class="card">
-  <h3><a href="https://247wallst.com/investing/2026/04/08/sp-500-snaps-up-one-of-the-markets-fastest%e2%80%91rising-stocks-should-you-buy-it/?.tsrc=rss" target="_blank" rel="noopener noreferrer">S&amp;P 500 Snaps Up One of the Market’s Fastest‑Rising Stocks—Should You Buy It?</a></h3>
-  <div class="row"><span class="label">來源:</span>Yahoo Finance S&amp;P 500 RSS</div>
-  <div class="row"><span class="label">發布時間:</span>2026-04-08 13:33 UTC</div>
-  <div class="row"><span class="label">摘要:</span>Casey’s General Stores (NASDAQ:CASY) is finally joining the S&amp;P 500 club, and as one of the stealthiest low-tech growth stories out there, I think it’s about time to pay closer attention to the name, especially since it’s “working” in this kind of hyper-volatile environment. Whether it’s rising geopolitical risks or fatigue facing AI and tech ... S&amp;P 500 Snaps Up One of the Market’s Fastest‑Rising Stocks—Should You Buy It?</div>
-  
-</article>
-  </div>
-</section>
-<section class="section">
-  <h2>加密貨幣</h2>
-  <div class="cards">
-    <article class="card">
-  <h3><a href="https://www.coindesk.com/policy/2026/04/07/stablecoin-issuers-get-closer-to-u-s-federal-rules-with-fdic-s-new-proposal" target="_blank" rel="noopener noreferrer">Stablecoin issuers get closer to U.S. federal rules with FDIC&#x27;s new proposal</a></h3>
-  <div class="row"><span class="label">來源:</span>CoinDesk RSS</div>
-  <div class="row"><span class="label">發布時間:</span>2026-04-07 18:21 UTC</div>
-  <div class="row"><span class="label">摘要:</span>The Federal Deposit Insurance Corp. approved a proposed rule to govern the issuers, even as the Senate continues to debate GENIUS Act details.</div>
-  
-</article>
-<article class="card">
-  <h3><a href="https://www.coindesk.com/markets/2026/04/07/blackrock-s-usd55-billion-ibit-fund-faces-its-toughest-rival-yet-in-morgan-stanley-s-massive-advisor-network" target="_blank" rel="noopener noreferrer">Morgan Stanley&#x27;s bitcoin ETF opens today, giving BlackRock’s $55 billion IBIT fund its toughest rival yet</a></h3>
-  <div class="row"><span class="label">來源:</span>CoinDesk RSS</div>
-  <div class="row"><span class="label">發布時間:</span>2026-04-08 13:15 UTC</div>
-  <div class="row"><span class="label">摘要:</span>While BlackRock’s spot bitcoin ETF currently reigns as the liquidity king of crypto, Morgan Stanley’s MSBT will leverage a market-low 0.14% fee and $7 trillion wealth management engine to possibly challenge that dominance.</div>
-  <div class="row"><span class="label">相關標的:</span>BTC</div>
-</article>
-<article class="card">
-  <h3><a href="https://www.coindesk.com/tech/2026/04/08/bitcoin-s-quantum-threat-is-distant-but-migration-clock-is-ticking-says-adam-back-says" target="_blank" rel="noopener noreferrer">Bitcoin’s quantum threat is distant, but migration clock is ticking, says Adam Back</a></h3>
-  <div class="row"><span class="label">來源:</span>CoinDesk RSS</div>
-  <div class="row"><span class="label">發布時間:</span>2026-04-08 13:08 UTC</div>
-  <div class="row"><span class="label">摘要:</span>Researchers are advancing post-quantum protections even as current hardware remains far from breaking crypto systems</div>
-  <div class="row"><span class="label">相關標的:</span>BTC</div>
-</article>
-<article class="card">
-  <h3><a href="https://www.coindesk.com/markets/2026/04/08/bitcoin-buyers-gobbled-up-nearly-850-000-btc-between-usd60-000-and-usd70-000" target="_blank" rel="noopener noreferrer">Bitcoin buyers gobbled up nearly 850,000 BTC between $60,000 and $70,000</a></h3>
-  <div class="row"><span class="label">來源:</span>CoinDesk RSS</div>
-  <div class="row"><span class="label">發布時間:</span>2026-04-08 11:36 UTC</div>
-  <div class="row"><span class="label">摘要:</span>A ton of BTC was recently traded below $70,000 in a sign of strong dip demand.</div>
-  <div class="row"><span class="label">相關標的:</span>BTC</div>
-</article>
-<article class="card">
-  <h3><a href="https://www.coindesk.com/markets/2026/04/08/ceasefire-lifts-bitcoin-but-animal-spirits-may-not-return-just-yet" target="_blank" rel="noopener noreferrer">Ceasefire lifts bitcoin, but animal spirits may not return just yet</a></h3>
-  <div class="row"><span class="label">來源:</span>CoinDesk RSS</div>
-  <div class="row"><span class="label">發布時間:</span>2026-04-08 11:15 UTC</div>
-  <div class="row"><span class="label">摘要:</span>Bitcoin clears a key technical hurdle and eyes $76,000 as a temporary ceasefire with Iran and Morgan Stanley’s landmark ETF debut restore market confidence.</div>
-  <div class="row"><span class="label">相關標的:</span>BTC</div>
-</article>
-<article class="card">
-  <h3><a href="https://cointelegraph.com/news/nyt-adam-back-bitcoin-creator-theory?utm_source=rss_feed&amp;utm_medium=rss_tag_bitcoin&amp;utm_campaign=rss_partner_inbound" target="_blank" rel="noopener noreferrer">NYT revives Adam Back theory in latest bid to identify Bitcoin creator</a></h3>
-  <div class="row"><span class="label">來源:</span>Cointelegraph Bitcoin RSS</div>
-  <div class="row"><span class="label">發布時間:</span>2026-04-08 11:03 UTC</div>
-  <div class="row"><span class="label">摘要:</span>&lt;p style=&quot;float:right; margin:0 0 10px 15px; width:240px;&quot;&gt;&lt;img src=&quot;https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDZjODctZmJmZS03ODNlLTgxOWQtMjQwMWNmYWJlNDBiLmpwZw==.jpg&quot; alt=&quot;NYT revives Adam Back theory in latest bid to identify Bitcoin creator&quot; class=&quot;type:primaryImage&quot;&gt;&lt;/p&gt;&lt;p&gt;A New York Times investigation points to Adam Back as Satoshi Nakamoto, but the Blockstream CEO denies it, and critics say proof is still missing.&lt;/p&gt;</div>
-  <div class="row"><span class="label">相關標的:</span>BTC</div>
-</article>
-<article class="card">
-  <h3><a href="https://www.coindesk.com/business/2026/04/08/six-top-swiss-banks-including-ubs-launch-swiss-franc-stablecoin-sandbox" target="_blank" rel="noopener noreferrer">Six Swiss banks join forces to build a unified digital franc</a></h3>
-  <div class="row"><span class="label">來源:</span>CoinDesk RSS</div>
-  <div class="row"><span class="label">發布時間:</span>2026-04-08 11:00 UTC</div>
-  <div class="row"><span class="label">摘要:</span>The initiative brings major lenders together to trial Swiss franc stablecoin in controlled environment with real transactions</div>
-  <div class="row"><span class="label">相關標的:</span>ETH</div>
-</article>
-  </div>
-</section>
+    <header class="hero panel">
+      <h1>每日市場晨報</h1>
+      <p class="hero-subtitle">掌握今日關鍵市場動態</p>
+      <div class="hero-meta">
+        <span class="meta-pill">報告日期: 2026-04-15</span>
+        <span class="meta-pill">更新時間: 2026-04-15T13:23:29.445839+00:00</span>
+        <span class="meta-pill">重點條目: 0</span>
+      </div>
+    </header>
+
+    
+
+    <section class="takeaways panel">
+      <h2 class="panel-title">今日重點</h2>
+      <ul class="takeaway-list">
+        <li class="takeaway-item"><span class="takeaway-label">重點</span>目前資料有限，稍後更新本日市場重點。</li>
+      </ul>
     </section>
+
+    <section class="summary panel">
+      <h2 class="panel-title">重點摘要</h2>
+      <p class="summary-content is-empty"> </p>
+    </section>
+
+    <section>
+      <article class="empty">目前尚無可用資料</article>
+    </section>
+
+    <footer class="page-footer">
+      報告產生時間: 2026-04-15T13:23:29.445839+00:00
+    </footer>
   </main>
 </body>
 </html>

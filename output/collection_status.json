@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-04-15T13:23:29.445839+00:00",
+  "run_status": "all_sources_failed",
+  "configured_source_count": 6,
+  "source_success_count": 0,
+  "source_failure_count": 6,
+  "sources": [
+    {
+      "name": "CoinDesk RSS",
+      "market": "crypto",
+      "url": "https://www.coindesk.com/arc/outboundfeeds/rss/",
+      "status": "failed",
+      "error": "fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>"
+    },
+    {
+      "name": "Cointelegraph Bitcoin RSS",
+      "market": "crypto",
+      "url": "https://cointelegraph.com/rss/tag/bitcoin",
+      "status": "failed",
+      "error": "fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>"
+    },
+    {
+      "name": "CNBC Top News RSS",
+      "market": "us",
+      "url": "https://www.cnbc.com/?format=rss",
+      "status": "failed",
+      "error": "fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>"
+    },
+    {
+      "name": "CNBC Markets RSS",
+      "market": "us",
+      "url": "https://www.cnbc.com/markets/?format=rss",
+      "status": "failed",
+      "error": "fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>"
+    },
+    {
+      "name": "FXStreet News RSS",
+      "market": "forex_macro",
+      "url": "https://www.fxstreet.com/rss/news",
+      "status": "failed",
+      "error": "fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>"
+    },
+    {
+      "name": "Federal Reserve All Press Releases RSS",
+      "market": "forex_macro",
+      "url": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "status": "failed",
+      "error": "fetch failed: <urlopen error [WinError 10061] 無法連線，因為目標電腦拒絕連線。>"
+    }
+  ]
+}

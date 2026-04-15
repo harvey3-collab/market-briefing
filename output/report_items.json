@@ -1,104 +1,40 @@
 {
-  "generated_at": "2026-04-08T13:38:20.428553+00:00",
-  "item_count": 10,
-  "items": [
+  "generated_at": "2026-04-15T13:23:29.445839+00:00",
+  "item_count": 0,
+  "items": [],
+  "run_status": "all_sources_failed",
+  "source_success_count": 0,
+  "source_failure_count": 6,
+  "source_snapshot": [
     {
-      "title": "Stock market today: Dow soars over 1,000 points, S&P 500 and Nasdaq surge on news of 2-week US-Iran ceasefire",
-      "source": "Yahoo Finance Nasdaq RSS",
-      "url": "https://finance.yahoo.com/news/live/stock-market-today-dow-soars-over-1000-points-sp-500-and-nasdaq-surge-on-news-of-2-week-us-iran-ceasefire-133232224.html?.tsrc=rss",
-      "published_at": "2026-04-08T13:32:32+00:00",
+      "name": "CoinDesk RSS",
+      "market": "crypto",
+      "url": "https://www.coindesk.com/arc/outboundfeeds/rss/"
+    },
+    {
+      "name": "Cointelegraph Bitcoin RSS",
+      "market": "crypto",
+      "url": "https://cointelegraph.com/rss/tag/bitcoin"
+    },
+    {
+      "name": "CNBC Top News RSS",
       "market": "us",
-      "summary": "Oil prices cratered as the suspension in hostilities raised hopes that the key Strait of Hormuz will soon reopen to shipping."
+      "url": "https://www.cnbc.com/?format=rss"
     },
     {
-      "title": "Morning Brief: Chicago Fed's Goolsbee 'nervous' about impact of oil shock on economy",
-      "source": "Yahoo Finance Nasdaq RSS",
-      "url": "https://finance.yahoo.com/news/morning-brief-chicago-feds-goolsbee-nervous-about-impact-of-oil-shock-on-economy-100030121.html?.tsrc=rss",
-      "published_at": "2026-04-08T10:00:30+00:00",
+      "name": "CNBC Markets RSS",
       "market": "us",
-      "summary": "The stock market, with President Trump's threat to Iran that a \"whole civilization will die tonight\" at top of mind, still managed to eke out gains as hope remained on Tuesday of a diplomatic resolution."
+      "url": "https://www.cnbc.com/markets/?format=rss"
     },
     {
-      "title": "Stablecoin issuers get closer to U.S. federal rules with FDIC's new proposal",
-      "source": "CoinDesk RSS",
-      "url": "https://www.coindesk.com/policy/2026/04/07/stablecoin-issuers-get-closer-to-u-s-federal-rules-with-fdic-s-new-proposal",
-      "published_at": "2026-04-07T18:21:08+00:00",
-      "market": "crypto",
-      "summary": "The Federal Deposit Insurance Corp. approved a proposed rule to govern the issuers, even as the Senate continues to debate GENIUS Act details."
+      "name": "FXStreet News RSS",
+      "market": "forex_macro",
+      "url": "https://www.fxstreet.com/rss/news"
     },
     {
-      "title": "S&P 500 Snaps Up One of the Market’s Fastest‑Rising Stocks—Should You Buy It?",
-      "source": "Yahoo Finance S&P 500 RSS",
-      "url": "https://247wallst.com/investing/2026/04/08/sp-500-snaps-up-one-of-the-markets-fastest%e2%80%91rising-stocks-should-you-buy-it/?.tsrc=rss",
-      "published_at": "2026-04-08T13:33:02+00:00",
-      "market": "us",
-      "summary": "Casey’s General Stores (NASDAQ:CASY) is finally joining the S&P 500 club, and as one of the stealthiest low-tech growth stories out there, I think it’s about time to pay closer attention to the name, especially since it’s “working” in this kind of hyper-volatile environment. Whether it’s rising geopolitical risks or fatigue facing AI and tech ... S&P 500 Snaps Up One of the Market’s Fastest‑Rising Stocks—Should You Buy It?"
-    },
-    {
-      "title": "Morgan Stanley's bitcoin ETF opens today, giving BlackRock’s $55 billion IBIT fund its toughest rival yet",
-      "source": "CoinDesk RSS",
-      "url": "https://www.coindesk.com/markets/2026/04/07/blackrock-s-usd55-billion-ibit-fund-faces-its-toughest-rival-yet-in-morgan-stanley-s-massive-advisor-network",
-      "published_at": "2026-04-08T13:15:00+00:00",
-      "market": "crypto",
-      "related_assets": [
-        "BTC"
-      ],
-      "summary": "While BlackRock’s spot bitcoin ETF currently reigns as the liquidity king of crypto, Morgan Stanley’s MSBT will leverage a market-low 0.14% fee and $7 trillion wealth management engine to possibly challenge that dominance."
-    },
-    {
-      "title": "Bitcoin’s quantum threat is distant, but migration clock is ticking, says Adam Back",
-      "source": "CoinDesk RSS",
-      "url": "https://www.coindesk.com/tech/2026/04/08/bitcoin-s-quantum-threat-is-distant-but-migration-clock-is-ticking-says-adam-back-says",
-      "published_at": "2026-04-08T13:08:46+00:00",
-      "market": "crypto",
-      "related_assets": [
-        "BTC"
-      ],
-      "summary": "Researchers are advancing post-quantum protections even as current hardware remains far from breaking crypto systems"
-    },
-    {
-      "title": "Bitcoin buyers gobbled up nearly 850,000 BTC between $60,000 and $70,000",
-      "source": "CoinDesk RSS",
-      "url": "https://www.coindesk.com/markets/2026/04/08/bitcoin-buyers-gobbled-up-nearly-850-000-btc-between-usd60-000-and-usd70-000",
-      "published_at": "2026-04-08T11:36:11+00:00",
-      "market": "crypto",
-      "related_assets": [
-        "BTC"
-      ],
-      "summary": "A ton of BTC was recently traded below $70,000 in a sign of strong dip demand."
-    },
-    {
-      "title": "Ceasefire lifts bitcoin, but animal spirits may not return just yet",
-      "source": "CoinDesk RSS",
-      "url": "https://www.coindesk.com/markets/2026/04/08/ceasefire-lifts-bitcoin-but-animal-spirits-may-not-return-just-yet",
-      "published_at": "2026-04-08T11:15:00+00:00",
-      "market": "crypto",
-      "related_assets": [
-        "BTC"
-      ],
-      "summary": "Bitcoin clears a key technical hurdle and eyes $76,000 as a temporary ceasefire with Iran and Morgan Stanley’s landmark ETF debut restore market confidence."
-    },
-    {
-      "title": "NYT revives Adam Back theory in latest bid to identify Bitcoin creator",
-      "source": "Cointelegraph Bitcoin RSS",
-      "url": "https://cointelegraph.com/news/nyt-adam-back-bitcoin-creator-theory?utm_source=rss_feed&utm_medium=rss_tag_bitcoin&utm_campaign=rss_partner_inbound",
-      "published_at": "2026-04-08T12:03:20+01:00",
-      "market": "crypto",
-      "related_assets": [
-        "BTC"
-      ],
-      "summary": "<p style=\"float:right; margin:0 0 10px 15px; width:240px;\"><img src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjYtMDQvMDE5ZDZjODctZmJmZS03ODNlLTgxOWQtMjQwMWNmYWJlNDBiLmpwZw==.jpg\" alt=\"NYT revives Adam Back theory in latest bid to identify Bitcoin creator\" class=\"type:primaryImage\"></p><p>A New York Times investigation points to Adam Back as Satoshi Nakamoto, but the Blockstream CEO denies it, and critics say proof is still missing.</p>"
-    },
-    {
-      "title": "Six Swiss banks join forces to build a unified digital franc",
-      "source": "CoinDesk RSS",
-      "url": "https://www.coindesk.com/business/2026/04/08/six-top-swiss-banks-including-ubs-launch-swiss-franc-stablecoin-sandbox",
-      "published_at": "2026-04-08T11:00:43+00:00",
-      "market": "crypto",
-      "related_assets": [
-        "ETH"
-      ],
-      "summary": "The initiative brings major lenders together to trial Swiss franc stablecoin in controlled environment with real transactions"
+      "name": "Federal Reserve All Press Releases RSS",
+      "market": "forex_macro",
+      "url": "https://www.federalreserve.gov/feeds/press_all.xml"
     }
   ]
 }
