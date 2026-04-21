@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: "30 23 * * *"
+    - cron: "37 23 * * *" # 07:37 Asia/Taipei (GitHub Actions cron is UTC)
   workflow_dispatch:
 
 permissions:
