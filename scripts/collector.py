@@ -81,12 +81,14 @@ def _parse_rss(root: ET.Element) -> List[Dict[str, str]]:
 
     items: List[Dict[str, str]] = []
     for item in channel.findall("item"):
+        description = _text(item.find("description"))
         items.append(
             {
                 "title": _text(item.find("title")),
                 "url": _text(item.find("link")),
                 "published_at": _text(item.find("pubDate")),
-                "summary": _text(item.find("description")),
+                "description": description,
+                "summary": description,
             }
         )
     return items
@@ -102,13 +104,17 @@ def _parse_atom(root: ET.Element) -> List[Dict[str, str]]:
             link = link_el.attrib.get("href", "")
 
         published = _text(entry.find("a:published", ns)) or _text(entry.find("a:updated", ns))
-        summary = _text(entry.find("a:summary", ns)) or _text(entry.find("a:content", ns))
+        atom_summary = _text(entry.find("a:summary", ns))
+        atom_content = _text(entry.find("a:content", ns))
+        description = atom_content or atom_summary
+        summary = atom_summary or atom_content
 
         items.append(
             {
                 "title": _text(entry.find("a:title", ns)),
                 "url": link,
                 "published_at": published,
+                "description": description,
                 "summary": summary,
             }
         )

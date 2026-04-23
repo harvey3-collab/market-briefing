@@ -15,8 +15,10 @@ MARKET_LABELS = {
     "forex_macro": "外匯與總經",
     "crypto": "加密貨幣",
 }
+EMPTY_MESSAGE_ALL_SOURCES_FAILED = "目前尚無可用資料"
+EMPTY_MESSAGE_NO_MAJOR_EVENTS = "目前無重大市場事件"
 FUTURE_BRIEF_FIELDS = ("zh_summary", "brief", "takeaway", "highlight")
-LEGACY_BRIEF_FIELDS = ("summary", "description")
+LEGACY_BRIEF_FIELDS = ("zh_description", "summary", "description")
 REPORT_BRIEF_FIELDS = (
     "report_zh_summary",
     "report_brief",
@@ -54,7 +56,7 @@ def _build_page(*, items: List[Dict[str, object]], generated_at: str, all_source
     count = len(items)
 
     if count == 0:
-        empty_message = "目前尚無可用資料" if all_sources_failed else "目前無重大市場事件"
+        empty_message = EMPTY_MESSAGE_ALL_SOURCES_FAILED if all_sources_failed else EMPTY_MESSAGE_NO_MAJOR_EVENTS
         sections_html = f'<article class="empty">{escape(empty_message)}</article>'
 
     return f"""<!doctype html>

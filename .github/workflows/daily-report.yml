@@ -5,7 +5,10 @@ on:
     branches:
       - main
   schedule:
-    - cron: "30 23 * * *" # 07:30 Asia/Taipei (GitHub Actions cron is UTC)
+    # Primary run at 07:30 Taiwan time (Asia/Taipei): 23:30 UTC (previous day).
+    - cron: "30 23 * * *"
+    # Backup run at 09:30 Taiwan time (Asia/Taipei): 01:30 UTC.
+    - cron: "30 1 * * *"
   workflow_dispatch:
 
 permissions:
